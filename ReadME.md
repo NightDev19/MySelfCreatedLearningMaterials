@@ -207,7 +207,7 @@ Two such meta elements that are useful to include on your page define the author
 ## List
 &ensp;&ensp;&ensp;&ensp;&ensp; Now let's turn our attention to lists. Lists are everywhere in life—from your shopping list to the list of directions you subconsciously follow to get to your house every day, to the lists of instructions you are following in these tutorials! Lists are everywhere on the web, too, and we've got three different types to worry about.
 
-### Unordered
+### Unordered List
 - Unordered lists are used to mark up lists of items for which the order of the items doesn't matter. Let's take a shopping list as an example:
 ```
 milk
@@ -233,3 +233,56 @@ hummus
   <li>hummus</li>
 </ul>
 ```
+### Ordered List
+- Ordered lists are lists in which the order of the items does matter. Let's take a set of directions as an example:
+```
+Drive to the end of the road
+Turn right
+Go straight across the first two roundabouts
+Turn left at the third roundabout
+The school is on your right, 300 meters up the road
+```
+- The markup structure is the same as for unordered lists, except that you have to wrap the list items in an < ol > element, rather than < ul >:
+```
+<ol>
+  <li>Drive to the end of the road</li>
+  <li>Turn right</li>
+  <li>Go straight across the first two roundabouts</li>
+  <li>Turn left at the third roundabout</li>
+  <li>The school is on your right, 300 meters up the road</li>
+</ol>
+```
+### Nesting lists
+- It is perfectly OK to nest one list inside another one. You might want to have some sub-bullets sitting below a top-level bullet. Let's take the second list from our recipe example:
+```
+<ol>
+  <li>Remove the skin from the garlic, and chop coarsely.</li>
+  <li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>
+  <li>Add all the ingredients into a food processor.</li>
+  <li>Process all the ingredients into a paste.</li>
+  <li>If you want a coarse "chunky" hummus, process it for a short time.</li>
+  <li>If you want a smooth hummus, process it for a longer time.</li>
+</ol>
+```
+- Since the last two bullets are very closely related to the one before them (they read like sub-instructions or choices that fit below that bullet), it might make sense to nest them inside their own unordered list and put that list inside the current fourth bullet. This would look like so:
+```
+<ol>
+  <li>Remove the skin from the garlic, and chop coarsely.</li>
+  <li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>
+  <li>Add all the ingredients into a food processor.</li>
+  <li>
+    Process all the ingredients into a paste.
+    <ul>
+      <li>
+        If you want a coarse "chunky" hummus, process it for a short time.
+      </li>
+      <li>If you want a smooth hummus, process it for a longer time.</li>
+    </ul>
+  </li>
+</ol>
+```
+### Emphasis and importance
+- We use emphasis < em > when it something important or to be noticed and < strong > so it can clearly says that it's important to remember that word or text, for example :
+#### Emphasis
+- When we want to add emphasis in spoken language, we stress certain words, subtly altering the meaning of what we are saying. For example, the following two sentences have different meanings.<br><br> I am glad you weren't late. <br>I am <em>glad</em> you weren't <em>late</em>.<br><br>
+- In HTML we use the <em> (emphasis) element to mark up such instances. As well as making the document more interesting to read, these are recognized by screen readers, which can be configured to speak them in a different tone of voice. Browsers style this as italic by default, but you shouldn't use this tag purely to get italic styling. To do that, you'd use a <span> element and some CSS, or perhaps an <i> element (see below).
